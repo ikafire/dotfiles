@@ -1,0 +1,6 @@
+[user]
+	name = Ching Lin
+	email = ikafire1230@gmail.com
+
+[includeIf "gitdir:~/work/"]
+	path = ~/work/.gitconfig

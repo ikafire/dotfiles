@@ -39,14 +39,16 @@ Chezmoi maps files in this repo to `$HOME` using naming conventions:
 - `.chezmoi.toml.tmpl` → chezmoi config (git `autoCommit = true`)
 
 **Installation scripts (run once):**
-- `run_once_install-packages.sh` — Installs zsh, Oh My Zsh, fzf, tig, Starship, zoxide
-- `run_once_install-docker.sh` — Installs Docker CE with compose/buildx plugins
+- `run_once_install.sh` — Installs zsh (set as default shell), Oh My Zsh, Starship, fzf, zoxide, nvm, Node.js, Claude Code, Codex, Docker CE
+- `run_once_generate-ssh-key.sh` — Generates ed25519 SSH key, switches chezmoi remote to SSH
 
 ## Key Architecture Decisions
 
 **Work vs personal git identity:** Uses git's native `includeIf "gitdir:~/work/"` directive in `dot_gitconfig` to automatically switch to a work email (`clin@bridgewell.com`) for repos under `~/work/`. No chezmoi templating is needed for this.
 
 **Templating:** Currently only `.chezmoi.toml.tmpl` uses templates. The `SKILL.md` in `.claude/skills/chezmoi/` documents patterns for adding machine-specific or OS-specific configuration when needed.
+
+**Idempotency in scripts:** Each step must guard itself with its own condition — never use an early `exit 0` to skip an entire script. Other steps in the script must still run.
 
 **Adding machine-specific config:** When a file needs to vary by machine, convert it to a `.tmpl` file and use Go template syntax with chezmoi data:
 ```

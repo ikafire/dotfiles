@@ -85,6 +85,13 @@ if ! command -v uv &>/dev/null; then
     curl -LsSf https://astral.sh/uv/install.sh | sh
 fi
 
+# .NET SDK 8.0 and 10.0
+if ! dpkg -s dotnet-sdk-8.0 &>/dev/null || ! dpkg -s dotnet-sdk-10.0 &>/dev/null; then
+    echo "==> Installing .NET SDK..."
+    sudo apt update
+    sudo apt install -y dotnet-sdk-8.0 dotnet-sdk-10.0
+fi
+
 # Docker
 if ! command -v docker &>/dev/null; then
     echo "==> Installing Docker..."

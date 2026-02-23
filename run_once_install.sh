@@ -9,6 +9,7 @@ sudo apt-get install -y \
     zsh \
     fzf \
     tig \
+    jq \
     ca-certificates \
     curl \
     python3

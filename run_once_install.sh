@@ -10,7 +10,8 @@ sudo apt-get install -y \
     fzf \
     tig \
     ca-certificates \
-    curl
+    curl \
+    python3
 
 # Oh My Zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -75,6 +76,12 @@ fi
 if ! command -v codex &>/dev/null; then
     echo "==> Installing Codex..."
     npm install -g @openai/codex
+fi
+
+# uv (Python package manager)
+if ! command -v uv &>/dev/null; then
+    echo "==> Installing uv..."
+    curl -LsSf https://astral.sh/uv/install.sh | sh
 fi
 
 # Docker

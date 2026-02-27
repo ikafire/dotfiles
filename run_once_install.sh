@@ -12,7 +12,14 @@ sudo apt-get install -y \
     jq \
     ca-certificates \
     curl \
-    python3
+    python3 \
+    libc6 \
+    libgcc1 \
+    libgssapi-krb5-2 \
+    libicu-dev \
+    libssl-dev \
+    libstdc++6 \
+    zlib1g
 
 # Oh My Zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -85,11 +92,15 @@ if ! command -v uv &>/dev/null; then
     curl -LsSf https://astral.sh/uv/install.sh | sh
 fi
 
-# .NET SDK 8.0 and 10.0
-if ! dpkg -s dotnet-sdk-8.0 &>/dev/null || ! dpkg -s dotnet-sdk-10.0 &>/dev/null; then
-    echo "==> Installing .NET SDK..."
-    sudo apt update
-    sudo apt install -y dotnet-sdk-8.0 dotnet-sdk-10.0
+# .NET SDK (via Microsoft install script — avoids apt mirror lag)
+DOTNET_INSTALL_DIR="$HOME/.dotnet"
+if ! "$DOTNET_INSTALL_DIR/dotnet" --list-sdks 2>/dev/null | grep -q "^8\."; then
+    echo "==> Installing .NET SDK 8.0..."
+    curl -fsSL https://dot.net/v1/dotnet-install.sh | bash -s -- --channel 8.0 --install-dir "$DOTNET_INSTALL_DIR"
+fi
+if ! "$DOTNET_INSTALL_DIR/dotnet" --list-sdks 2>/dev/null | grep -q "^10\."; then
+    echo "==> Installing .NET SDK 10.0..."
+    curl -fsSL https://dot.net/v1/dotnet-install.sh | bash -s -- --channel 10.0 --install-dir "$DOTNET_INSTALL_DIR"
 fi
 
 # Docker

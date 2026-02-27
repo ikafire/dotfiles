@@ -115,6 +115,10 @@ eval "$(starship init zsh)"
 # For chezmoi
 path+=($HOME'/bin')
 
+# .NET
+export DOTNET_ROOT="$HOME/.dotnet"
+path+=($DOTNET_ROOT $DOTNET_ROOT/tools)
+
 # Init zoxide, should be the last line in zshrc
 path+=($HOME'/.local/bin')
 eval "$(zoxide init zsh)"

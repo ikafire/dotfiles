@@ -119,6 +119,10 @@ path+=($HOME'/bin')
 export DOTNET_ROOT="$HOME/.dotnet"
 path+=($DOTNET_ROOT $DOTNET_ROOT/tools)
 
+# Source bridgewell-claude-code envs
+source ~/.config/bridgewell/envs
+
 # Init zoxide, should be the last line in zshrc
 path+=($HOME'/.local/bin')
 eval "$(zoxide init zsh)"
+

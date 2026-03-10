@@ -42,6 +42,10 @@ Chezmoi maps files in this repo to `$HOME` using naming conventions:
 - `run_once_install.sh` — Installs zsh (set as default shell), Oh My Zsh, Starship, fzf, zoxide, nvm, Node.js, Claude Code, Codex, Docker CE
 - `run_once_generate-ssh-key.sh` — Generates ed25519 SSH key, switches chezmoi remote to SSH
 
+## Workflow
+
+**Always commit and push after making changes.** After any file edits, stage the changes, commit with a descriptive message, and push to the remote. Do not wait for the user to ask.
+
 ## Key Architecture Decisions
 
 **Work vs personal git identity:** Uses git's native `includeIf "gitdir:~/work/"` directive in `dot_gitconfig` to automatically switch to a work email (`clin@bridgewell.com`) for repos under `~/work/`. No chezmoi templating is needed for this.

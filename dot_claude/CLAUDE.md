@@ -4,7 +4,11 @@
 
 - **Never chain commands with `&&`** — use separate parallel Bash calls instead. Claude Code's compound-command security check ([#16561](https://github.com/anthropics/claude-code/issues/16561)) prompts even when each component is individually allowed.
 - **Avoid quoted strings resembling flags** (e.g., `echo "---"`) which trigger "quoted characters in flag names" warnings ([#27957](https://github.com/anthropics/claude-code/issues/27957)).
-- **Never use heredoc-style git commands** (e.g., `git commit -m "$(cat <<'EOF' ... EOF)"`). Use simple inline `-m "message"` instead. Heredoc patterns require special permission approval and are annoying.
+- **For multi-line git commits**, use multiple `-m` flags (each becomes a separate paragraph). Never use heredoc, `$(...)`, or `$'\n'` — they all trigger permission prompts.
+  ```bash
+  git commit -m "feat: summary" -m "Details here" -m "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+  ```
+- **For PR bodies**, use `--body-file` with a temp file created via the Write tool. Never use `--body` with `$()` or heredoc.
 
 ## Web Fetching Tool Selection
 

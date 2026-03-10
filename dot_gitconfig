@@ -7,3 +7,6 @@
 
 [includeIf "gitdir:~/work/"]
 	path = ~/work/.gitconfig
+
+[includeIf "gitdir:~/.config/bridgewell/"]
+	path = ~/.config/bridgewell/.gitconfig

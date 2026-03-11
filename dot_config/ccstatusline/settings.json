@@ -55,6 +55,12 @@
         "id": "09ce04ba-1769-4c7f-8fa7-68b115ea6fb9",
         "type": "git-changes"
       }
+    ],
+    [
+      {
+        "id": "79331b53-d5c5-4169-9bb9-008cb1499d68",
+        "type": "current-working-dir"
+      }
     ]
   ],
   "flexMode": "full-minus-40",

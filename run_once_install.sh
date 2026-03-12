@@ -102,6 +102,10 @@ if ! "$DOTNET_INSTALL_DIR/dotnet" --list-sdks 2>/dev/null | grep -q "^10\."; the
     echo "==> Installing .NET SDK 10.0..."
     curl -fsSL https://dot.net/v1/dotnet-install.sh | bash -s -- --channel 10.0 --install-dir "$DOTNET_INSTALL_DIR"
 fi
+if ! "$DOTNET_INSTALL_DIR/dotnet" tool list -g 2>/dev/null | grep -q "csharp-ls"; then
+    echo "==> Installing csharp-ls (C# LSP)..."
+    "$DOTNET_INSTALL_DIR/dotnet" tool install -g csharp-ls
+fi
 
 # Docker
 if ! command -v docker &>/dev/null; then

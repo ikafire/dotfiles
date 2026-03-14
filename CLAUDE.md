@@ -32,7 +32,8 @@ Personal dotfiles managed with chezmoi. Maps source files to `$HOME` using namin
 | `.chezmoi.toml.tmpl` | `~/.config/chezmoi/chezmoi.toml` | Chezmoi config (`autoCommit = true`) |
 
 **Installation scripts (run once):**
-- `run_once_install.sh` — zsh, Oh My Zsh, Starship, fzf, zoxide, nvm, Node.js, Claude Code, Codex, Docker CE
+- `run_once_install.sh` — zsh, Oh My Zsh, Starship, fzf, zoxide, uv, .NET SDK, Docker CE
+- `run_once_install-agents.sh` — nvm, Node.js, Claude Code, Codex
 - `run_once_generate-ssh-key.sh` — ed25519 SSH key, switches chezmoi remote to SSH
 - `run_once_zz_install-crawl4ai-mcp.sh` — Crawl4AI MCP server
 

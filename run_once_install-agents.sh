@@ -27,6 +27,12 @@ if ! command -v codex &>/dev/null; then
     npm install -g @openai/codex
 fi
 
+# OpenSpec
+if ! command -v openspec &>/dev/null; then
+    echo "==> Installing OpenSpec..."
+    npm install -g @fission-ai/openspec@latest
+fi
+
 # Crawl4AI MCP server
 CRAWL4AI_MCP_DIR="$HOME/projects/crawl4ai-mcp"
 

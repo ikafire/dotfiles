@@ -19,7 +19,8 @@ sudo apt-get install -y \
     libicu-dev \
     libssl-dev \
     libstdc++6 \
-    zlib1g
+    zlib1g \
+    adb
 
 # Oh My Zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then

@@ -1,6 +1,5 @@
 {
   "permissions": {
-    "defaultMode": "acceptEdits",
     "allow": [
       "WebFetch",
       "WebSearch",
@@ -91,7 +90,8 @@
       "mcp__crawl4ai__*",
       "mcp__plugin_bw-devkit_mysql__*",
       "mcp__plugin_bw-devkit_graphql__*"
-    ]
+    ],
+    "defaultMode": "acceptEdits"
   },
   "model": "opus",
   "statusLine": {

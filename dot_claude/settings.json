@@ -85,6 +85,7 @@
       "Bash(sha256sum:*)",
       "Bash(md5sum:*)",
       "Bash(chezmoi:*)",
+      "Bash(openspec:*)",
       "mcp__plugin_playwright_playwright__*",
       "mcp__plugin_bw-devkit_gitlab__*",
       "mcp__crawl4ai__*",

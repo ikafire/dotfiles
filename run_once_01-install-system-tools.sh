@@ -12,6 +12,7 @@ sudo apt-get install -y \
     jq \
     ca-certificates \
     curl \
+    unzip \
     python3 \
     libc6 \
     libgcc1 \
@@ -19,8 +20,7 @@ sudo apt-get install -y \
     libicu-dev \
     libssl-dev \
     libstdc++6 \
-    zlib1g \
-    adb
+    zlib1g
 
 # Oh My Zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then

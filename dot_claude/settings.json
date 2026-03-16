@@ -105,6 +105,8 @@
     "ralph-loop@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
     "playwright@claude-plugins-official": true,
-    "bw-devkit@bridgewell-claude-code": true
+    "csharp-lsp@claude-plugins-official": true,
+    "bw-devkit@bridgewell-claude-code": true,
+    "bw-adops@bridgewell-claude-code": true
   }
 }

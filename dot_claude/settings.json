@@ -114,7 +114,8 @@
       "mcp__plugin_bw-devkit_google-workspace__list_script_projects",
       "mcp__plugin_bw-devkit_google-workspace__get_script_project",
       "mcp__plugin_bw-devkit_google-workspace__get_script_content",
-      "mcp__plugin_bw-devkit_google-workspace__generate_trigger_code"
+      "mcp__plugin_bw-devkit_google-workspace__generate_trigger_code",
+      "mcp__plugin_bw-devkit_jupyter__*"
     ],
     "defaultMode": "acceptEdits"
   },
@@ -131,7 +132,8 @@
     "playwright@claude-plugins-official": true,
     "csharp-lsp@claude-plugins-official": true,
     "bw-devkit@bridgewell-claude-code": true,
-    "bw-adops@bridgewell-claude-code": true
+    "bw-adops@bridgewell-claude-code": true,
+    "bw-gws@bridgewell-claude-code": true
   },
   "skipDangerousModePermissionPrompt": true
 }

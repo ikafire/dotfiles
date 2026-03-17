@@ -50,14 +50,16 @@ else
     echo "==> Installing crawl4ai-mcp dependencies..."
     uv sync --directory "$CRAWL4AI_MCP_DIR"
 
-    echo "==> Installing crawl4ai browser dependencies..."
-    if ! uv run --directory "$CRAWL4AI_MCP_DIR" crawl4ai-setup; then
-        echo "==> crawl4ai-setup could not complete fully; installing Chromium browser directly..."
-        uv run --directory "$CRAWL4AI_MCP_DIR" python -m playwright install chromium
+    # Skip browser install if Chromium is already present
+    if ls ~/.cache/ms-playwright/chromium-* &>/dev/null; then
+        echo "==> Playwright Chromium already installed, skipping."
+    else
+        echo "==> Installing crawl4ai browser dependencies..."
+        if ! uv run --directory "$CRAWL4AI_MCP_DIR" crawl4ai-setup; then
+            echo "==> crawl4ai-setup could not complete fully; installing Chromium browser directly..."
+            uv run --directory "$CRAWL4AI_MCP_DIR" python -m playwright install chromium
+        fi
     fi
-
-    echo "==> Verifying crawl4ai installation..."
-    uv run --directory "$CRAWL4AI_MCP_DIR" crawl4ai-doctor
 
     if command -v claude &>/dev/null; then
         if claude mcp get crawl4ai >/dev/null 2>&1; then

@@ -13,6 +13,7 @@ sudo apt-get install -y \
     ca-certificates \
     curl \
     unzip \
+    gh \
     keepassxc \
     python3 \
     libc6 \

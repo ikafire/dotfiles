@@ -86,16 +86,5 @@ JSON
     fi
 fi
 
-# GitHub MCP server (remote, OAuth — no PAT needed)
-if command -v claude &>/dev/null; then
-    if claude mcp get github >/dev/null 2>&1; then
-        echo "==> Claude Code MCP server 'github' already configured."
-    else
-        echo "==> Registering GitHub MCP server in Claude Code (user scope, OAuth)..."
-        claude mcp add-json --scope user github '{"type":"http","url":"https://api.githubcopilot.com/mcp/"}'
-    fi
-else
-    echo "==> Skipping GitHub MCP registration: claude CLI not found."
-fi
 
 echo "==> Agent setup done!"

@@ -23,3 +23,7 @@ When fetching web content, choose the tool with the best token-efficiency for th
 | Don't know the URL | **WebSearch** | Only option that doesn't require a URL |
 
 **Default to WebSearch** for most tasks — it has the lowest token cost, highest signal-to-noise ratio, and AI-synthesized answers with source links. Only fall back to WebFetch or Crawl4AI when you need the full original page content.
+
+## Dev Flow
+
+- **When fixing bugs, always reproduce the failure first.** Before writing any fix, write or run a test that demonstrates the bug and confirm it fails. Only after seeing the failure should you implement the fix, then re-run the test to verify it passes. This ensures you've identified the actual root cause rather than guessing.

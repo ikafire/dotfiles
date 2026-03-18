@@ -133,7 +133,7 @@
     "csharp-lsp@claude-plugins-official": true,
     "bw-devkit@bridgewell-claude-code": true,
     "bw-adops@bridgewell-claude-code": true,
-    "bw-gws@bridgewell-claude-code": true
+    "bw-data@bridgewell-claude-code": true
   },
   "skipDangerousModePermissionPrompt": true
 }

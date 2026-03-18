@@ -15,6 +15,7 @@ sudo apt-get install -y \
     unzip \
     gh \
     keepassxc \
+    asciinema \
     python3 \
     libc6 \
     libgcc1 \

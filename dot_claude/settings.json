@@ -115,11 +115,12 @@
       "mcp__plugin_bw-devkit_google-workspace__get_script_project",
       "mcp__plugin_bw-devkit_google-workspace__get_script_content",
       "mcp__plugin_bw-devkit_google-workspace__generate_trigger_code",
-      "mcp__plugin_bw-devkit_jupyter__*"
+      "mcp__plugin_bw-devkit_jupyter__*",
+      "mcp__plugin_bw-devkit_sourcebot__*",
+      "mcp__plugin_bw-devkit_grafana__*"
     ],
     "defaultMode": "acceptEdits"
   },
-  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "npx -y ccstatusline@latest",

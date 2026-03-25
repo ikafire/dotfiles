@@ -92,6 +92,7 @@
       "Bash(md5sum:*)",
       "Bash(chezmoi:*)",
       "Bash(openspec:*)",
+      "Bash(gws:*)",
       "mcp__plugin_playwright_playwright__*",
       "mcp__plugin_bw-devkit_gitlab__*",
       "mcp__crawl4ai__*",

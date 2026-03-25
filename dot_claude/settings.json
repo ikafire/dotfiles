@@ -1,6 +1,9 @@
 {
   "permissions": {
     "allow": [
+      "Read:/home/ikafire/projects/**",
+      "Read:/home/ikafire/work/**",
+      "Read:/tmp/**",
       "WebFetch",
       "WebSearch",
       "Mkdir",
@@ -119,7 +122,7 @@
       "mcp__plugin_bw-devkit_sourcebot__*",
       "mcp__plugin_bw-devkit_grafana__*"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "auto"
   },
   "statusLine": {
     "type": "command",

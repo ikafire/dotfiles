@@ -27,3 +27,4 @@ When fetching web content, choose the tool with the best token-efficiency for th
 ## Dev Flow
 
 - **When fixing bugs, always reproduce the failure first.** Before writing any fix, write or run a test that demonstrates the bug and confirm it fails. Only after seeing the failure should you implement the fix, then re-run the test to verify it passes. This ensures you've identified the actual root cause rather than guessing.
+- **Use `uv` to create a venv when running temporary Python scripts.** If a script needs dependencies not available globally, use `uv venv` and `uv pip install` to set up an isolated environment before running it.

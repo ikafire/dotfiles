@@ -145,5 +145,6 @@
     "bw-gws@bridgewell-claude-code": true,
     "slack@claude-plugins-official": true
   },
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "effortLevel": "high"
 }

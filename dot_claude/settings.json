@@ -143,5 +143,6 @@
     "bw-data@bridgewell-claude-code": true,
     "bw-gws@bridgewell-claude-code": true
   },
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "model": "opus"
 }

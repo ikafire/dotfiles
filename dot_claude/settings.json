@@ -124,7 +124,15 @@
       "mcp__plugin_bw-devkit_google-workspace__generate_trigger_code",
       "mcp__plugin_bw-data_jupyter__*",
       "mcp__plugin_bw-devkit_sourcebot__*",
-      "mcp__plugin_bw-devkit_grafana__*"
+      "mcp__plugin_bw-devkit_grafana__*",
+      "mcp__plugin_slack_slack__slack_read_canvas",
+      "mcp__plugin_slack_slack__slack_read_channel",
+      "mcp__plugin_slack_slack__slack_read_thread",
+      "mcp__plugin_slack_slack__slack_read_user_profile",
+      "mcp__plugin_slack_slack__slack_search_channels",
+      "mcp__plugin_slack_slack__slack_search_public",
+      "mcp__plugin_slack_slack__slack_search_public_and_private",
+      "mcp__plugin_slack_slack__slack_search_users"
     ],
     "defaultMode": "auto"
   },

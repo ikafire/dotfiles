@@ -85,6 +85,26 @@ if ! "$DOTNET_INSTALL_DIR/dotnet" tool list -g 2>/dev/null | grep -q "csharp-ls"
     "$DOTNET_INSTALL_DIR/dotnet" tool install -g csharp-ls
 fi
 
+# kubectl (via Kubernetes apt repo)
+if ! command -v kubectl &>/dev/null; then
+    echo "==> Installing kubectl..."
+
+    sudo install -m 0755 -d /etc/apt/keyrings
+    sudo curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key \
+        | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+    sudo chmod a+r /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+
+    sudo tee /etc/apt/sources.list.d/kubernetes.sources <<EOF
+Types: deb
+URIs: https://pkgs.k8s.io/core:/stable:/v1.31/deb/
+Suites: /
+Signed-By: /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+EOF
+
+    sudo apt-get update
+    sudo apt-get install -y kubectl
+fi
+
 # Docker
 if ! command -v docker &>/dev/null; then
     echo "==> Installing Docker..."

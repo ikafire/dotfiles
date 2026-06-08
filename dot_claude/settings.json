@@ -1,16 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Read:/home/ikafire/projects/**",
-      "Read:/home/ikafire/work/**",
-      "Read:/tmp/**",
-      "Read:/home/ikafire/.claude/plugins/**",
-      "Read:/home/ikafire/.local/share/chezmoi/**",
-      "Edit:/home/ikafire/.local/share/chezmoi/**",
+      "Read(/home/ikafire/projects/**)",
+      "Read(/home/ikafire/work/**)",
+      "Read(/tmp/**)",
+      "Read(/home/ikafire/.claude/plugins/**)",
+      "Read(/home/ikafire/.local/share/chezmoi/**)",
+      "Edit(/home/ikafire/.local/share/chezmoi/**)",
       "WebFetch",
       "WebSearch",
       "Mkdir",
-      "Cd:*",
       "Git",
       "Git-filter-branch",
       "Test",
@@ -136,7 +135,6 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "npx -y ccstatusline@latest",
@@ -147,12 +145,15 @@
     "claude-md-management@claude-plugins-official": true,
     "playwright@claude-plugins-official": true,
     "csharp-lsp@claude-plugins-official": true,
-    "bw-devkit@bridgewell-claude-code": true,
     "bw-adops@bridgewell-claude-code": true,
     "bw-data@bridgewell-claude-code": true,
     "bw-gws@bridgewell-claude-code": true,
-    "slack@claude-plugins-official": true
+    "slack@claude-plugins-official": true,
+    "bw-devkit@bridgewell-claude-code": true,
+    "bw-bidder@bridgewell-claude-code": true
   },
+  "effortLevel": "high",
   "skipDangerousModePermissionPrompt": true,
-  "effortLevel": "high"
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": true
 }

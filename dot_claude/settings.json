@@ -152,8 +152,9 @@
     "bw-devkit@bridgewell-claude-code": true,
     "bw-bidder@bridgewell-claude-code": true
   },
-  "effortLevel": "high",
+  "effortLevel": "xhigh",
   "skipDangerousModePermissionPrompt": true,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "tui": "fullscreen"
 }

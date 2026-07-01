@@ -135,6 +135,9 @@
     ],
     "defaultMode": "auto"
   },
+  "env": {
+    "BW_DISABLED_HOOKS": "guard-mysql"
+  },
   "statusLine": {
     "type": "command",
     "command": "npx -y ccstatusline@latest",

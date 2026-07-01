@@ -155,6 +155,7 @@
   "effortLevel": "xhigh",
   "skipDangerousModePermissionPrompt": true,
   "agentPushNotifEnabled": true,
+  "preferredNotifChannel": "terminal_bell",
   "skipAutoPermissionPrompt": true,
   "tui": "fullscreen"
 }

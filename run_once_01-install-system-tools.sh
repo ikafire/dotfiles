@@ -105,6 +105,27 @@ EOF
     sudo apt-get install -y kubectl
 fi
 
+# Google Cloud CLI (via Google Cloud apt repo)
+if ! command -v gcloud &>/dev/null; then
+    echo "==> Installing Google Cloud CLI..."
+
+    sudo install -m 0755 -d /etc/apt/keyrings
+    sudo curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg \
+        | sudo gpg --dearmor -o /etc/apt/keyrings/cloud.google.gpg
+    sudo chmod a+r /etc/apt/keyrings/cloud.google.gpg
+
+    sudo tee /etc/apt/sources.list.d/google-cloud-sdk.sources <<EOF
+Types: deb
+URIs: https://packages.cloud.google.com/apt
+Suites: cloud-sdk
+Components: main
+Signed-By: /etc/apt/keyrings/cloud.google.gpg
+EOF
+
+    sudo apt-get update
+    sudo apt-get install -y google-cloud-cli
+fi
+
 # Docker
 if ! command -v docker &>/dev/null; then
     echo "==> Installing Docker..."

@@ -33,7 +33,7 @@ Personal dotfiles managed with chezmoi. Maps source files to `$HOME` using namin
 
 **Installation scripts (run once):**
 - `run_once_01-install-system-tools.sh` — zsh, Oh My Zsh, Starship, fzf, zoxide, uv, .NET SDK, Docker CE
-- `run_once_02-install-agents.sh` — nvm, Node.js, Claude Code, Codex, OpenSpec, Crawl4AI MCP
+- `run_once_02-install-agents.sh` — nvm, Node.js, Claude Code, Codex, OpenSpec, herdr, Crawl4AI MCP
 - `run_once_03-generate-ssh-key.sh` — ed25519 SSH key, switches chezmoi remote to SSH
 
 ## Gotchas

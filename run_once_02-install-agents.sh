@@ -33,6 +33,12 @@ if ! command -v openspec &>/dev/null; then
     npm install -g @fission-ai/openspec@latest
 fi
 
+# herdr (AI coding agent multiplexer)
+if ! command -v herdr &>/dev/null && [ ! -x "$HOME/.local/bin/herdr" ]; then
+    echo "==> Installing herdr..."
+    curl -fsSL https://herdr.dev/install.sh | sh
+fi
+
 # Crawl4AI MCP server
 CRAWL4AI_MCP_DIR="$HOME/projects/crawl4ai-mcp"
 

@@ -33,12 +33,13 @@ Personal dotfiles managed with chezmoi. Maps source files to `$HOME` using namin
 
 **Installation scripts (run once):**
 - `run_once_01-install-system-tools.sh` — zsh, Oh My Zsh, Starship, fzf, zoxide, uv, .NET SDK, Docker CE
-- `run_once_02-install-agents.sh` — nvm, Node.js, Claude Code, OpenSpec, herdr, Crawl4AI MCP
+- `run_once_02-install-agents.sh` — nvm, Node.js, Claude Code, OpenSpec, herdr + `herdr integration install claude`, Crawl4AI MCP
 - `run_once_03-generate-ssh-key.sh` — ed25519 SSH key, switches chezmoi remote to SSH
 
 ## Gotchas
 
 - **Git identity switching:** `dot_gitconfig` uses `includeIf "gitdir:~/work/"` and `includeIf "gitdir:~/.config/bridgewell/"` to auto-switch to work email. No chezmoi templating needed.
 - **Script idempotency:** Each step in `run_once_*.sh` must guard itself with its own condition — never use an early `exit 0` to skip the entire script.
+- **herdr hook is not chezmoi-managed:** `dot_claude/settings.json` carries a `SessionStart` hook pointing at `~/.claude/hooks/herdr-agent-state.sh`, but herdr's `install.sh` only drops the binary — the hook comes from `herdr integration install claude`, which `run_once_02` now runs. Don't `chezmoi add` that hook script: its own header says herdr overwrites it on every integration update, so chezmoi would fight it on each version bump.
 - **`.chezmoiignore`:** Repo-level `CLAUDE.md` and `README.md` are ignored — they won't be applied to home.
 - **Templates:** Only `.chezmoi.toml.tmpl` uses templates currently. To add machine-specific config, convert a file to `.tmpl` and use `{{- if eq .chezmoi.os "darwin" }}`.

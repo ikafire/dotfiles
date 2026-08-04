@@ -33,6 +33,21 @@ if ! command -v herdr &>/dev/null && [ ! -x "$HOME/.local/bin/herdr" ]; then
     curl -fsSL https://herdr.dev/install.sh | sh
 fi
 
+# herdr Claude Code integration — install.sh only drops the binary, so the
+# SessionStart hook in ~/.claude/settings.json needs this to exist.
+# Resolve the path directly: ~/.local/bin may not be on PATH during first apply.
+HERDR_BIN="$(command -v herdr || echo "$HOME/.local/bin/herdr")"
+if [ -x "$HERDR_BIN" ]; then
+    if "$HERDR_BIN" integration status 2>/dev/null | grep -q "^claude: current"; then
+        echo "==> herdr Claude Code integration already current."
+    else
+        echo "==> Installing herdr Claude Code integration..."
+        "$HERDR_BIN" integration install claude
+    fi
+else
+    echo "==> Skipping herdr integration: herdr not found."
+fi
+
 # Crawl4AI MCP server
 CRAWL4AI_MCP_DIR="$HOME/projects/crawl4ai-mcp"
 

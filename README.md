@@ -17,7 +17,7 @@ These run in numeric order on the first `chezmoi apply`, and again whenever thei
 | Script | Installs |
 |---|---|
 | `run_once_01-install-system-tools.sh` | apt packages, zsh + Oh My Zsh (+ autosuggestions, syntax-highlighting), Starship, zoxide, uv, .NET SDK, kubectl, gcloud CLI, Docker CE |
-| `run_once_02-install-agents.sh` | nvm + Node.js LTS, Claude Code, OpenSpec, herdr, Crawl4AI MCP |
+| `run_once_02-install-agents.sh` | nvm + Node.js LTS, Claude Code, OpenSpec, herdr (+ its Claude Code integration), Crawl4AI MCP |
 | `run_once_03-generate-ssh-key.sh` | ed25519 SSH key, then switches the chezmoi remote from HTTPS to SSH |
 | `run_once_04-install-android-sdk.sh` | JDK 17, adb, Android SDK command-line tools |
 

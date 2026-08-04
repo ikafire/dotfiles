@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-# nvm + Node.js (required for claude and codex)
+# nvm + Node.js (required for claude)
 export NVM_DIR="$HOME/.nvm"
 if [ ! -d "$NVM_DIR" ]; then
     echo "==> Installing nvm..."
@@ -19,12 +19,6 @@ fi
 if ! command -v claude &>/dev/null; then
     echo "==> Installing Claude Code..."
     npm install -g @anthropic-ai/claude-code
-fi
-
-# Codex
-if ! command -v codex &>/dev/null; then
-    echo "==> Installing Codex..."
-    npm install -g @openai/codex
 fi
 
 # OpenSpec
@@ -80,17 +74,6 @@ JSON
         fi
     else
         echo "==> Skipping Claude Code MCP registration: claude CLI not found."
-    fi
-
-    if command -v codex &>/dev/null; then
-        if codex mcp get crawl4ai >/dev/null 2>&1; then
-            echo "==> Codex MCP server 'crawl4ai' already configured."
-        else
-            echo "==> Registering crawl4ai MCP server in Codex..."
-            codex mcp add crawl4ai -- uv run --directory "$CRAWL4AI_MCP_DIR" python -m crawl4ai_mcp.server
-        fi
-    else
-        echo "==> Skipping Codex MCP registration: codex CLI not found."
     fi
 fi
 

@@ -26,5 +26,7 @@ When fetching web content, choose the tool with the best token-efficiency for th
 
 ## Dev Flow
 
+- **When reviewing an MR/PR, don't re-run what CI already covers.** Read the pipeline result instead (`list_merge_request_pipelines` → job status). Re-running the lint + test suite locally duplicates CI and produces no new information. Only run code locally when it answers a question CI cannot: a throwaway probe that confirms or refutes a specific review finding (a missing guard, a silent no-op, two configs colliding). Those probes are scratch files — never commit them.
 - **When fixing bugs, always reproduce the failure first.** Before writing any fix, write or run a test that demonstrates the bug and confirm it fails. Only after seeing the failure should you implement the fix, then re-run the test to verify it passes. This ensures you've identified the actual root cause rather than guessing.
 - **Use `uv` to create a venv when running temporary Python scripts.** If a script needs dependencies not available globally, use `uv venv` and `uv pip install` to set up an isolated environment before running it.
+- **Never run `dotnet build` / `dotnet test` locally in WSL** — the machine runs out of memory and crashes. For .NET projects, always commit and push, and let CI do the build/test. Read the pipeline result instead of building locally.

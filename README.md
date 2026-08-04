@@ -10,17 +10,25 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply ikafire
 
 Log out and back in after for the shell change and Docker group to take effect.
 
-## Crawl4AI MCP (post-install)
+## Run-once scripts
 
-A separate run-once script installs and registers crawl4ai MCP **after** the main install script:
-- Script: `run_once_zz_install-crawl4ai-mcp.sh`
-- Clone path: `~/projects/crawl4ai-mcp`
-- Registers `crawl4ai` for the Claude Code CLI
+These run in numeric order on the first `chezmoi apply`, and again whenever their contents change.
+
+| Script | Installs |
+|---|---|
+| `run_once_01-install-system-tools.sh` | apt packages, zsh + Oh My Zsh (+ autosuggestions, syntax-highlighting), Starship, zoxide, uv, .NET SDK, kubectl, gcloud CLI, Docker CE |
+| `run_once_02-install-agents.sh` | nvm + Node.js LTS, Claude Code, OpenSpec, herdr, Crawl4AI MCP |
+| `run_once_03-generate-ssh-key.sh` | ed25519 SSH key, then switches the chezmoi remote from HTTPS to SSH |
+| `run_once_04-install-android-sdk.sh` | JDK 17, adb, Android SDK command-line tools |
+
+Each step guards itself, so re-running any script is safe.
+
+**Crawl4AI MCP** (part of script 02) clones to `~/projects/crawl4ai-mcp` and registers a `crawl4ai` MCP server for Claude Code at user scope.
 
 Manual run:
 
 ```bash
-bash ~/.local/share/chezmoi/run_once_zz_install-crawl4ai-mcp.sh
+bash ~/.local/share/chezmoi/run_once_02-install-agents.sh
 ```
 
 ## How-tos
@@ -51,12 +59,13 @@ chezmoi add --template ~/.config/foo/config
 chezmoi edit ~/.config/foo/config   # use {{ .chezmoi.os }}, {{ .chezmoi.hostname }}, etc.
 ```
 
-**Re-run the main install script:**
+**Pull local edits back into the repo:**
 ```bash
-bash ~/.local/share/chezmoi/run_once_install.sh
+chezmoi re-add            # all managed files
+chezmoi re-add ~/.zshrc   # just one
 ```
 
-**Re-run the crawl4ai MCP install script:**
+**Re-run a run-once script:**
 ```bash
-bash ~/.local/share/chezmoi/run_once_zz_install-crawl4ai-mcp.sh
+bash ~/.local/share/chezmoi/run_once_01-install-system-tools.sh
 ```

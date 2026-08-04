@@ -1,4 +1,45 @@
 {
+  "agentPushNotifEnabled": true,
+  "effortLevel": "xhigh",
+  "enabledPlugins": {
+    "bw-adops@bridgewell-claude-code": true,
+    "bw-bidder@bridgewell-claude-code": true,
+    "bw-cat@bridgewell-claude-code": false,
+    "bw-data@bridgewell-claude-code": true,
+    "bw-devkit@bridgewell-claude-code": true,
+    "bw-gws@bridgewell-claude-code": true,
+    "claude-md-management@claude-plugins-official": true,
+    "csharp-lsp@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "slack@claude-plugins-official": true
+  },
+  "env": {
+    "BW_DISABLED_HOOKS": "guard-mysql"
+  },
+  "extraKnownMarketplaces": {
+    "bridgewell-claude-code": {
+      "source": {
+        "source": "git",
+        "url": "git@gitlab.local.bridgewell.com:infrastructure/bridgewell-claude-code.git"
+      }
+    }
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "bash '/home/ikafire/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10,
+            "type": "command"
+          }
+        ],
+        "matcher": "*"
+      }
+    ]
+  },
+  "model": "opus[1m]",
   "permissions": {
     "allow": [
       "Read(/home/ikafire/projects/**)",
@@ -135,30 +176,14 @@
     ],
     "defaultMode": "auto"
   },
-  "env": {
-    "BW_DISABLED_HOOKS": "guard-mysql"
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "npx -y ccstatusline@latest",
-    "padding": 0
-  },
-  "enabledPlugins": {
-    "skill-creator@claude-plugins-official": true,
-    "claude-md-management@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true,
-    "csharp-lsp@claude-plugins-official": true,
-    "bw-adops@bridgewell-claude-code": true,
-    "bw-data@bridgewell-claude-code": true,
-    "bw-gws@bridgewell-claude-code": true,
-    "slack@claude-plugins-official": true,
-    "bw-devkit@bridgewell-claude-code": true,
-    "bw-bidder@bridgewell-claude-code": true
-  },
-  "effortLevel": "xhigh",
-  "skipDangerousModePermissionPrompt": true,
-  "agentPushNotifEnabled": true,
   "preferredNotifChannel": "terminal_bell",
   "skipAutoPermissionPrompt": true,
+  "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "statusLine": {
+    "command": "npx -y ccstatusline@latest",
+    "padding": 0,
+    "type": "command"
+  },
   "tui": "fullscreen"
 }
